@@ -22,3 +22,8 @@ function displayGames(filteredGames) {
   });
 }
 
+<div class="flex justify-center gap-2 mt-2">
+    <div id="dot1" class="w-2 h-2 bg-blue-500 rounded-full"></div>
+    <div id="dot2" class="w-2 h-2 bg-gray-300 rounded-full"></div>
+    <div id="dot3" class="w-2 h-2 bg-gray-300 rounded-full"></div>
+  </div>
