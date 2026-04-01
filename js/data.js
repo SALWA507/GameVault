@@ -5,7 +5,7 @@
         title: "Cyberpunk 2077",
         price: 59.99,
         category: "RPG",
-        
+        // Image de ville futuriste nÃ©on
         image: "https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077PhantomLiberty_CDPROJEKTRED_DLC_S1_2560x1440-c62f1eb1498aaea2fc109b7aa50279a3?resize=1&w=480&h=270&quality=medium",
         description: "Plongez dans l'avenir sombre de Night City en tant que mercenaire hors-la-loi Ã  la recherche d'un implant unique."
     },
