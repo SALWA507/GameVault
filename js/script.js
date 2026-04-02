@@ -7,16 +7,17 @@ function displayGames(list) {
   for (let i = 0; i < list.length; i++) {
     let game = list[i]; 
 
-    let div = document.createElement("div");
-    div.className = "bg-white rounded-xl shadow p-3"; 
-    div.innerHTML =
-      '<img src="' + game.image + '" class="w-full h-40 object-cover rounded-lg" />' +
-      '<h3 class="font-bold mt-2">' + game.title + '</h3>' +
-      '<p>' + game.description + '</p>' +
-      '<div class="flex justify-between mt-2">' +
-        '<p> 4.8</p>' +
-        '<p class="text-green-600 font-bold">' + game.price + '$</p>' +
-      '</div>';
+   let div = document.createElement("div");
+div.className = "bg-white rounded-xl shadow p-3"; 
+
+div.innerHTML =
+  '<img src="' + game.image + '" class="w-full h-40 object-cover rounded-lg" />' +
+  '<h3 class="font-bold mt-2">' + game.title + '</h3>' +
+  '<div class="flex justify-between mt-2">' +
+    '<p>4.8</p>' +
+    '<p class="text-green-600 font-bold ">' + game.price + '$</p>' +
+  '</div>'+
+   '<i class="fa-solid fa-cart-plus text-black cursor-pointer"></i>';
 
     container.appendChild(div);
 }
@@ -29,13 +30,13 @@ buttons.forEach(btn => {
 
     let filtered = [];
 
-    if (filter === "all") {
+    if (filter === "Action") {
       filtered = games;
     } 
-    else if (filter === "top") {
+    else if (filter === "RPG") {
       filtered = games.slice(0, 10); 
     } 
-    else if (filter === "popular") {
+    else if (filter === "FPS") {
       filtered = games.filter(game => game.popular);
     }
 
@@ -54,27 +55,5 @@ searchInput.addEventListener("input", function() {
     }
   }
 
-  displayGames(list); 
+  displayGames(filtered); 
 });
-function displayGames(list) {
-  container.innerHTML = "";
-
-  for (let i = 0; i < list.length; i++) {
-    let game = list[i];
-
-    let div = document.createElement("div");
-    div.className = "bg-white rounded-xl shadow p-3 relative"; 
-
-    div.innerHTML =
-      '<img src="' + game.image + '" class="w-full h-40 object-cover rounded-lg" />' +
-      '<h3 class="font-bold mt-2">' + game.title + '</h3>' +
-      '<p>' + game.description + '</p>' +
-      '<div class="flex justify-between items-center mt-2">' +
-        '<p>4.8</p>' +
-        '<p class="text-green-600 font-bold">' + game.price + '$</p>' +
-      '</div>' +
-      '<i class="fa-solid fa-cart-plus absolute top-3 right-3 text-blue-500 cursor-pointer"></i>';
-
-    container.appendChild(div);
-  }
-}
