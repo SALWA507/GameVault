@@ -81,3 +81,10 @@ searchInput.addEventListener("input", function() {
 
   displayGames(filtered); 
 });
+function updateCartCount() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+  document.getElementById("cart-count").innerText = count;
+}
+
+updateCartCount();
