@@ -67,3 +67,19 @@ function removeItem(id) {
 }
 
 displayCart();
+const orderBtn = document.getElementById("orderBtn");
+
+orderBtn.addEventListener("click", function() {
+
+  if (cart.length === 0) {
+    alert("Le panier est vide !");
+    return;
+  }
+
+  alert("Commande réussie ");
+
+  cart = [];
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  displayCart();
+});
