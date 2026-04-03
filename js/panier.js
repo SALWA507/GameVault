@@ -2,6 +2,7 @@ const container = document.getElementById("cart-container");
 const totalDisplay = document.getElementById("total");
 const orderBtn = document.getElementById("orderBtn");
 
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 function displayCart() {
   container.innerHTML = "";
