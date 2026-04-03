@@ -7,9 +7,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 <body class="bg-gray-100">
-
   <header class="relative w-full h-60">
     <img 
       src="img1.png" 
@@ -17,7 +15,6 @@
       class="w-full h-full object-cover"
     />
     <div class="absolute inset-0 bg-black/50"></div>
-
     <div class="absolute top-6 left-1/2 transform -translate-x-1/2 w-11/12">
       <div class="flex items-center bg-white/20 backdrop-blur-md rounded-full px-4 py-2 shadow-lg">
         <i class="fa-solid fa-magnifying-glass text-white mr-2"></i>
@@ -28,19 +25,21 @@
           class="bg-transparent outline-none text-white w-full placeholder-white"
         />
       </div>
+      
+<div class="absolute top-4 right-4">
+  <a href="panier.html" class="text-white text-2xl relative">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs">0</span>
+  </a>
+</div>
     </div>
   </header>
-
   <div class="flex gap-2 py-4 px-2 justify-center">
     <button class="filter-btn px-4 py-2 bg-blue-500 text-white rounded-lg" data-filter="all">Action</button>
     <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg" data-filter="top">RPG</button>
     <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg" data-filter="popular">FPS</button>
-    
   </div>
-
-
   <div id="games-container" class="grid grid-cols-1 md:grid-cols-4 gap-6 p-4"></div>
-
   <script src="js/data.js"></script>
   <script src="js/script.js"></script>
 </body>
