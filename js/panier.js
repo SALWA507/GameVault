@@ -26,3 +26,14 @@ function displayCart() {
 
 displayCart();
 
+orderBtn.addEventListener("click", () => {
+  if(cart.length === 0) {
+    alert("Le panier est vide !");
+    return;
+  }
+
+  alert("Commande réussie !");
+  cart = [];
+  localStorage.setItem("cart", JSON.stringify(cart));
+  displayCart();
+});
