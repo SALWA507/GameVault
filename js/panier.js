@@ -13,6 +13,7 @@ function displayCart() {
     div.className = "bg-white p-3 mb-2";
 
     div.innerHTML =
+    '<img src="' + item.image + '" class="w-20 h-20 object-cover inline-block mr-2" />' +
       item.title + " x " + item.quantity + " - " +
       (item.price * item.quantity).toFixed(2) + "$" +
 
