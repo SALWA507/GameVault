@@ -17,6 +17,7 @@ function displayGames(list) {
         '<p class="text-green-600 font-bold ">' + game.price + '$</p>' +
       '</div>' +
       '<i class="fa-solid fa-cart-plus text-black cursor-pointer add-to-cart" data-id="' + game.id + '"></i>';
+      
 
     container.appendChild(div);
   }
@@ -50,6 +51,7 @@ container.addEventListener("click", function(e) {
       updateCartCount();
   }
 });
+
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
     const filter = btn.dataset.filter;
@@ -69,18 +71,23 @@ buttons.forEach(btn => {
   });
 });
 const searchInput = document.getElementById("searchInput");
+
+
 searchInput.addEventListener("input", function() {
-  let query = searchInput.value.toLowerCase();
-  let filtered = [];
+
+  let query = searchInput.value;
+  let filtered = []; 
 
   for (let i = 0; i < games.length; i++) {
-    if (games[i].title.toLowerCase().indexOf(query) >= 0) {
-      filtered.push(games[i]);
+
+    if (games[i].title.includes(query)) {
+      filtered.push(games[i]); 
     }
   }
 
-  displayGames(filtered); 
+  displayGames(filtered);
 });
+
 function updateCartCount() {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const count = cart.reduce((acc, item) => acc + item.quantity, 0);
