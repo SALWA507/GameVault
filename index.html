@@ -35,11 +35,13 @@
     </div>
   </header>
   <div class="flex gap-2 py-4 px-2 justify-center">
-    <button class="filter-btn px-4 py-2 bg-blue-500 text-white rounded-lg" data-filter="all">Action</button>
-    <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg" data-filter="top">RPG</button>
-    <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg" data-filter="popular">FPS</button>
+    <button class="filter-btn px-4 py-2 bg-blue-500 text-white rounded-lg" data-filter="all">All</button>
+    <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg" data-filter="Action">Action</button>
+    <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg" data-filter="RPG">RPG</button>
+    <button class="filter-btn px-4 py-2 bg-gray-200 rounded-lg" data-filter="FPS">FPS</button>
   </div>
   <div id="games-container" class="grid grid-cols-1 md:grid-cols-4 gap-6 p-4"></div>
+  <span id="cart-count">0</span>
   <script src="js/data.js"></script>
   <script src="js/script.js"></script>
 </body>

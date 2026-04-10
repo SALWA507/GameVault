@@ -16,8 +16,7 @@ function displayGames(list) {
         '<p class="text-green-600 font-bold ">' + game.price + '$</p>' +
       '</div>' +
       '<i class="fa-solid fa-cart-plus text-black cursor-pointer add-to-cart" data-id="' + game.id + '"></i>';
-      
-
+  
     container.appendChild(div);
   }
 }
@@ -48,28 +47,26 @@ container.addEventListener("click", function(e) {
       updateCartCount();
   }
 });
-
 buttons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    const filter = btn.dataset.filter;
-    let filtered = [];
+  btn.addEventListener("click", function(e) {
 
-    if (filter === "Action") {
+    let filter = e.target.dataset.filter;
+    
+    let filtered = [];
+    if (filter === "all") {
+      
+      
       filtered = games;
-    } 
-    else if (filter === "RPG") {
-      filtered = games.slice(0, 10); 
-    } 
-    else if (filter === "FPS") {
-      filtered = games.filter(game => game.popular);
+    } else {
+      filtered = games.filter(function(game) {
+        return game.category === filter;
+      });
     }
 
     displayGames(filtered);
   });
 });
 const searchInput = document.getElementById("searchInput");
-
-
 searchInput.addEventListener("input", function() {
 
   let query = searchInput.value;
@@ -81,23 +78,19 @@ searchInput.addEventListener("input", function() {
       filtered.push(games[i]); 
     }
   }
-
   displayGames(filtered);
 });
-
 function updateCartCount() {
   let cart = JSON.parse(localStorage.getItem("cart"));
 
   if (cart === null) {
     cart = [];
   }
-
   let total = 0;
 
   for (let i = 0; i < cart.length; i++) {
     total = total + cart[i].quantity;
   }
-ext = total;
+document.getElementById("cart-count").innerText = total;
 }
-
 updateCartCount();
