@@ -8,7 +8,6 @@ function displayGames(list) {
     let game = list[i]; 
     let div = document.createElement("div");
     div.className = "bg-white rounded-xl shadow p-3"; 
-
     div.innerHTML =
       '<img src="' + game.image + '" class="w-full h-40 object-cover rounded-lg" />' +
       '<h3 class="font-bold mt-2">' + game.title + '</h3>' +
@@ -22,9 +21,7 @@ function displayGames(list) {
     container.appendChild(div);
   }
 }
-
 displayGames(games);
-
 container.addEventListener("click", function(e) {
   if (e.target.classList.contains("add-to-cart")) {
 
@@ -89,9 +86,18 @@ searchInput.addEventListener("input", function() {
 });
 
 function updateCartCount() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const count = cart.reduce((acc, item) => acc + item.quantity, 0);
-  document.getElementById("cart-count").innerText = count;
+  let cart = JSON.parse(localStorage.getItem("cart"));
+
+  if (cart === null) {
+    cart = [];
+  }
+
+  let total = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    total = total + cart[i].quantity;
+  }
+ext = total;
 }
 
 updateCartCount();

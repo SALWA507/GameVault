@@ -14,12 +14,11 @@ function displayCart() {
 
     div.innerHTML =
     '<img src="' + item.image + '" class="w-20 h-20 object-cover inline-block mr-2" />' +
-      item.title + " x " + item.quantity + " - " +
+      item.title + " -" + item.quantity + " - " +
       (item.price * item.quantity).toFixed(2) + "$" +
-
       " <button onclick='increase(" + item.id + ")'>+</button>" +
       " <button onclick='decrease(" + item.id + ")'>-</button>" +
-      " <button onclick='removeItem(" + item.id + ")'>X</button>";
+      " <button onclick='removeItem(" + item.id + ")'>supprimer</button>";
 
     container.appendChild(div);
 
