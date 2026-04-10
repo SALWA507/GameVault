@@ -1,7 +1,6 @@
 let panier = JSON.parse(localStorage.getItem("panier")) || [];
 const container = document.getElementById("games-container");
 const buttons = document.querySelectorAll(".filter-btn");
-
 function displayGames(list) {
   container.innerHTML = "";
   for (let i = 0; i < list.length; i++) {
@@ -16,7 +15,6 @@ function displayGames(list) {
         '<p class="text-green-600 font-bold ">' + game.price + '$</p>' +
       '</div>' +
       '<i class="fa-solid fa-cart-plus text-black cursor-pointer add-to-cart" data-id="' + game.id + '"></i>';
-  
     container.appendChild(div);
   }
 }
@@ -42,38 +40,29 @@ container.addEventListener("click", function(e) {
         quantity: 1  
       });
     }
-
     localStorage.setItem("cart", JSON.stringify(cart));
       updateCartCount();
   }
 });
 buttons.forEach(btn => {
   btn.addEventListener("click", function(e) {
-
     let filter = e.target.dataset.filter;
-    
     let filtered = [];
     if (filter === "all") {
-      
-      
       filtered = games;
     } else {
       filtered = games.filter(function(game) {
         return game.category === filter;
       });
     }
-
     displayGames(filtered);
   });
 });
 const searchInput = document.getElementById("searchInput");
 searchInput.addEventListener("input", function() {
-
   let query = searchInput.value;
   let filtered = []; 
-
   for (let i = 0; i < games.length; i++) {
-
     if (games[i].title.includes(query)) {
       filtered.push(games[i]); 
     }
@@ -82,7 +71,6 @@ searchInput.addEventListener("input", function() {
 });
 function updateCartCount() {
   let cart = JSON.parse(localStorage.getItem("cart"));
-
   if (cart === null) {
     cart = [];
   }

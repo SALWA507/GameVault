@@ -4,31 +4,27 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 function displayCart() {
   container.innerHTML = "";
   let total = 0;
-
+   let item = cart[i];
   for (let i = 0; i < cart.length; i++) {
-
-    let item = cart[i];
+     total = total + cart[i].quantity;
+     document.getElementById("cart-count").innerText = cart.length;
+   
 
     let div = document.createElement("div");
     div.className = "bg-white p-3 mb-2";
-
     div.innerHTML =
     '<img src="' + item.image + '" class="w-20 h-20 object-cover inline-block mr-2" />' +
       item.title + " -" + item.quantity + " - " +
-      (item.price * item.quantity).toFixed(2) + "$" +
+     
+
       " <button onclick='increase(" + item.id + ")'>+</button>" +
       " <button onclick='decrease(" + item.id + ")'>-</button>" +
       " <button onclick='removeItem(" + item.id + ")'>supprimer</button>";
-
     container.appendChild(div);
-
-    total += item.price * item.quantity;
+   
   }
-
-  totalDisplay.innerText = "Total : " + total.toFixed(2) + "$";
+  totalDisplay.innerText = "quantite : " + quantite.toFixed(2) + "$";
 }
-
-
 function increase(id) {
   for (let i = 0; i < cart.length; i++) {
     if (cart[i].id === id) {
@@ -52,16 +48,13 @@ function decrease(id) {
 }
 
 function removeItem(id) {
-  let newCart = [];
-
-  for (let i = 0; i < cart.length; i++) {
-    if (cart[i].id !== id) {
-      newCart.push(cart[i]);
+ let newcart =[];
+ for(let i=0;i<cart.length;i++){
+    if(item.id===!id){
+        newcart.push(cart)
     }
-  }
-
-  cart = newCart;
-
+    cart = newcart
+ }
   localStorage.setItem("cart", JSON.stringify(cart));
   displayCart();
 }
